@@ -9,7 +9,7 @@ def main():
     project      = "project-2eef9167-38f3-4223-ac1"
     dataset      = "forecast"
     table        = "weather_data"
-    temp_bucket  = "bq-temp-gds"
+    temp_bucket  = "bq-temp-gds-new"
     bucket       = "weather-data-gds-new"
     today        = datetime.date.today().strftime("%Y-%m-%d")
     input_path   = f"gs://{bucket}/weather/{today}/forecast.csv"
@@ -56,7 +56,6 @@ def main():
             col("`wind.deg`").cast("long").alias("wind_deg"),
             col("`wind.gust`").cast("double").alias("wind_gust"),
             col("`sys.pod`").alias("sys_pod"),
-            col("`rain.3h`").cast("double").alias("rain_3h"),
         )
     )
 
